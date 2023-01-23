@@ -2,6 +2,19 @@ public class linkedList {
     int size = 0;
     node start;
 
+    void reverse() {
+        node prev = null;
+        node current = start;
+        node next = null;
+        while (current != null) {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        start = prev;
+    }
+
     int size(){
         return size;
     }
