@@ -1,5 +1,10 @@
 public class linkedList {
+    int size = 0;
     node start;
+
+    int size(){
+        return size;
+    }
 
     void delete(int data) {
         if (start == null) {
@@ -17,11 +22,13 @@ public class linkedList {
             }
             current = current.next;
         }
+        size--;
     }
 
     void add(int data){
         node newNode = new node();
         newNode.data = data;
+        size ++;
 
         if(start==null){
             start = newNode;
@@ -36,7 +43,26 @@ public class linkedList {
         }
     }
 
-    void deleteMany(int... args) {
+    void addMultiple(int... args){
+        for(int data:args) {
+            node newNode = new node();
+            newNode.data = data;
+            size++;
+
+            if (start == null) {
+                start = newNode;
+            } else {
+                node current = start;
+
+                while (current.next != null) {
+                    current = current.next;
+                }
+                current.next = newNode;
+            }
+        }
+    }
+
+    void deleteMultiple(int... args) {
         for (int data : args) {
             if (start == null) {
                 return;
@@ -53,6 +79,7 @@ public class linkedList {
                 }
                 current = current.next;
             }
+            size--;
         }
     }
     void printLink(){
