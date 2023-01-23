@@ -6,25 +6,6 @@ public class linkedList {
         return size;
     }
 
-    void delete(int data) {
-        if (start == null) {
-            return;
-        }
-        node current = start;
-        if(current.data == data){
-            start = current.next;
-        }
-        while (current.next != null ) {
-
-            if (current.next.data == data) {
-                current.next = current.next.next;
-                return;
-            }
-            current = current.next;
-        }
-        size--;
-    }
-
     void add(int data){
         node newNode = new node();
         newNode.data = data;
@@ -43,7 +24,7 @@ public class linkedList {
         }
     }
 
-    void addMultiple(int... args){
+    void add(int... args){
         for(int data:args) {
             node newNode = new node();
             newNode.data = data;
@@ -62,7 +43,7 @@ public class linkedList {
         }
     }
 
-    void deleteMultiple(int... args) {
+    void delete(int... args) {
         for (int data : args) {
             if (start == null) {
                 return;
